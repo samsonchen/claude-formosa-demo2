@@ -251,8 +251,9 @@ body.has-hero main { padding-top: 0; }
 .fine { font-size: 13px; color: var(--muted); margin: 0 0 6px; }
 
 /* ---------- 動態：最低限度 ---------- */
-.reveal { opacity: 0; transform: translateY(12px); transition: opacity .6s ease, transform .6s ease; }
-.reveal.in { opacity: 1; transform: none; }
+/* 預設可見。只有在 JS 確定可用時才先隱藏，避免 JS 失敗時整頁空白。 */
+.js .reveal { opacity: 0; transform: translateY(12px); transition: opacity .6s ease, transform .6s ease; }
+.js .reveal.in { opacity: 1; transform: none; }
 
 @media (prefers-reduced-motion: reduce) {
   * { animation: none !important; transition: none !important; }

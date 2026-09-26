@@ -46,6 +46,7 @@
     lang = /^zh/i.test(nav) ? 'zh' : 'en';
   }
   var el = document.documentElement;
+  el.className += ' js';
   el.setAttribute('data-lang', lang);
   el.setAttribute('lang', lang === 'zh' ? 'zh-Hant' : 'en');
   el.setAttribute('data-title-zh', {{ page_title_zh | jsonify }});

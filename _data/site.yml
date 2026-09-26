@@ -1,0 +1,63 @@
+discord: https://discord.gg/fWcPCyMBta
+threads: https://www.threads.com/@claude.formosa
+instagram: https://www.instagram.com/claude.formosa/
+
+venue:
+  zh: 花蓮雲基地
+  en: Hualien Cloud Base
+address:
+  zh: 花蓮市府前路 3 號
+  en: "No. 3, Fuqian Rd., Hualien City"
+
+next_event:
+  date: "2026-10-30"
+  weekday:
+    zh: 週五
+    en: Friday
+  time: "18:00 – 20:00"
+  fee:
+    zh: 免費
+    en: Free
+
+organizers:
+  - name: Samson Chen
+    initials: SC
+    role:
+      zh: 科技公司技術長
+      en: "CTO, technology company"
+  - name: Shinru Wang
+    initials: SW
+    role:
+      zh: 資深產品經理
+      en: Senior product manager
+  - name: Sophie Lin
+    initials: SL
+    role:
+      zh: 資深系統架構師
+      en: Senior systems architect
+
+mission:
+  - title:
+      zh: 真實的 AI 知識
+      en: Grounded AI knowledge
+    body:
+      zh: 推廣真實、正確的 AI 知識，對抗資訊噪音。
+      en: Promoting accurate, grounded knowledge about AI, against the noise.
+  - title:
+      zh: 治理與安全
+      en: Governance and safety
+    body:
+      zh: 倡導 AI 治理與安全的使用方式。
+      en: Advocating for AI governance and safe, responsible use.
+  - title:
+      zh: 實戰經驗交流
+      en: Hands-on exchange
+    body:
+      zh: 分享實際用 AI 做事的經驗，包含踩過的坑。
+      en: Sharing what actually happens when you use AI at work, pitfalls included.
+  - title:
+      zh: Anthropic 生態系
+      en: The Anthropic ecosystem
+    body:
+      zh: 讓更多台灣使用者認識 Anthropic 與 Claude 的生態系。
+      en: Introducing more people in Taiwan to Anthropic and the Claude ecosystem.

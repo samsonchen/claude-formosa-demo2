@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="zh-Hant" data-lang="zh">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+{%- assign og_image = '/assets/img/hero-poster.jpg' | absolute_url -%}
+{%- if page.layout == 'event' -%}
+  {%- assign page_title_zh = page.title.zh | append: ' · claude.formosa' -%}
+  {%- assign page_title_en = page.title.en | append: ' · claude.formosa' -%}
+  {%- assign page_desc_zh = page.intro.zh -%}
+  {%- assign page_desc_en = page.intro.en -%}
+{%- else -%}
+  {%- assign page_title_zh = 'claude.formosa · ' | append: site.tagline_zh -%}
+  {%- assign page_title_en = 'claude.formosa · ' | append: site.tagline_en -%}
+  {%- assign page_desc_zh = site.description_zh -%}
+  {%- assign page_desc_en = site.description_en -%}
+{%- endif -%}
+
+<title>{{ page_title_zh }}</title>
+<meta name="description" content="{{ page_desc_zh | strip_newlines | truncate: 200 }}">
+<meta property="og:site_name" content="claude.formosa">
+<meta property="og:type" content="website">
+<meta property="og:title" content="{{ page_title_zh }}">
+<meta property="og:description" content="{{ page_desc_zh | strip_newlines | truncate: 200 }}">
+<meta property="og:image" content="{{ og_image }}">
+<meta property="og:url" content="{{ page.url | absolute_url }}">
+<meta property="og:locale" content="zh_TW">
+<meta property="og:locale:alternate" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="{{ page.url | absolute_url }}">
+<link rel="icon" href="{{ '/assets/img/favicon.svg' | relative_url }}" type="image/svg+xml">
+<link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
+
+<script>
+/* 在首次繪製前決定語言，避免閃爍。順序：URL ?lang= → localStorage → 瀏覽器語言 → 中文 */
+(function () {
+  var lang = null;
+  try {
+    var q = new URLSearchParams(location.search).get('lang');
+    if (q === 'en' || q === 'zh') lang = q;
+    if (!lang) { var s = localStorage.getItem('cf-lang'); if (s === 'en' || s === 'zh') lang = s; }
+  } catch (e) {}
+  if (!lang) {
+    var nav = (navigator.languages && navigator.languages[0]) || navigator.language || 'zh';
+    lang = /^zh/i.test(nav) ? 'zh' : 'en';
+  }
+  var el = document.documentElement;
+  el.setAttribute('data-lang', lang);
+  el.setAttribute('lang', lang === 'zh' ? 'zh-Hant' : 'en');
+  el.setAttribute('data-title-zh', {{ page_title_zh | jsonify }});
+  el.setAttribute('data-title-en', {{ page_title_en | jsonify }});
+  el.setAttribute('data-desc-zh', {{ page_desc_zh | strip_newlines | truncate: 200 | jsonify }});
+  el.setAttribute('data-desc-en', {{ page_desc_en | strip_newlines | truncate: 200 | jsonify }});
+})();
+</script>
+</head>
+<body{% if page.hero %} class="has-hero"{% endif %}>
+<a class="skip" href="#main">{% include t.html zh=site.data.i18n.skip_to_content.zh en=site.data.i18n.skip_to_content.en %}</a>
+
+<header class="topbar">
+  <a class="wordmark" href="{{ '/' | relative_url }}">claude.formosa</a>
+  <div class="langswitch" role="group" aria-label="{{ site.data.i18n.lang_switch_label.zh }} / {{ site.data.i18n.lang_switch_label.en }}">
+    <button type="button" data-setlang="zh" aria-pressed="false">中文</button>
+    <span class="sep" aria-hidden="true">/</span>
+    <button type="button" data-setlang="en" aria-pressed="false">EN</button>
+  </div>
+</header>
+
+<main id="main">
+{{ content }}
+</main>
+
+<footer class="site-footer">
+  <nav class="social" aria-label="claude.formosa">
+    <a href="{{ site.data.site.discord }}" rel="noopener">Discord</a>
+    <a href="{{ site.data.site.threads }}" rel="noopener">Threads</a>
+    <a href="{{ site.data.site.instagram }}" rel="noopener">Instagram</a>
+  </nav>
+  <p class="fine">{% include t.html zh=site.data.i18n.organized_by.zh en=site.data.i18n.organized_by.en %}</p>
+  <p class="fine">{% include t.html zh=site.data.i18n.venue_thanks.zh en=site.data.i18n.venue_thanks.en %}</p>
+  <p class="fine">© {{ 'now' | date: "%Y" }} claude.formosa</p>
+</footer>
+
+<script src="{{ '/assets/js/lang.js' | relative_url }}"></script>
+<script src="{{ '/assets/js/reveal.js' | relative_url }}"></script>
+</body>
+</html>

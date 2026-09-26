@@ -1,0 +1,109 @@
+---
+layout: default
+---
+{%- assign ordered = site.events | sort: 'date' -%}
+{%- assign prev_url = nil -%}
+{%- assign next_url = nil -%}
+{%- assign seen = false -%}
+{%- for e in ordered -%}
+  {%- if seen and next_url == nil -%}
+    {%- assign next_url = e.url -%}
+    {%- assign next_title = e.title -%}
+  {%- endif -%}
+  {%- if e.url == page.url -%}
+    {%- assign seen = true -%}
+  {%- elsif seen == false -%}
+    {%- assign prev_url = e.url -%}
+    {%- assign prev_title = e.title -%}
+  {%- endif -%}
+{%- endfor -%}
+
+<article>
+  <header class="event-head">
+    <div class="wrap">
+      <p class="date">{{ page.date | date: "%Y.%m.%d" }}</p>
+      <h1>{% include t.html zh=page.title.zh en=page.title.en %}</h1>
+      <p class="intro l zh" lang="zh-Hant">{{ page.intro.zh }}</p>
+      <p class="intro l en" lang="en">{{ page.intro.en }}</p>
+
+      {%- if page.poster %}
+      <figure class="event-poster reveal">
+        <picture>
+          <source srcset="{{ '/assets/img/posters/' | append: page.poster | append: '.webp' | relative_url }}" type="image/webp">
+          <img src="{{ '/assets/img/posters/' | append: page.poster | append: '.jpg' | relative_url }}"
+               alt="{{ page.title.zh }} 海報" loading="lazy">
+        </picture>
+      </figure>
+      {%- endif %}
+    </div>
+  </header>
+
+  {%- if page.speakers and page.speakers.size > 0 %}
+  <section class="section">
+    <div class="wrap">
+      <p class="section-label">{% include t.html zh=site.data.i18n.speakers_heading.zh en=site.data.i18n.speakers_heading.en %}</p>
+      <div class="speakers">
+        {%- for s in page.speakers %}
+        <div class="speaker reveal">
+          <p class="who">{{ s.name }}{% if s.org %} <span class="org">{% include t.html zh=s.org.zh en=s.org.en %}</span>{% endif %}</p>
+          <p class="what l zh" lang="zh-Hant">{{ s.topic.zh }}</p>
+          <p class="what l en" lang="en">{{ s.topic.en }}</p>
+          {%- if s.links %}
+          <p class="links">
+            {%- for link in s.links %}
+            <a href="{{ link.url }}" rel="noopener">{% include t.html zh=link.label.zh en=link.label.en %}</a>
+            {%- endfor %}
+          </p>
+          {%- endif %}
+        </div>
+        {%- endfor %}
+      </div>
+    </div>
+  </section>
+  {%- endif %}
+
+  {%- if page.video %}
+  <section class="section">
+    <div class="wrap event-video">
+      <p class="section-label">{% include t.html zh=site.data.i18n.video_heading.zh en=site.data.i18n.video_heading.en %}</p>
+      <video controls preload="none" playsinline
+             poster="{{ '/assets/img/events/' | append: page.slug | append: '/video-poster.jpg' | relative_url }}">
+        <source src="{{ '/assets/video/' | append: page.video | relative_url }}" type="video/mp4">
+      </video>
+    </div>
+  </section>
+  {%- endif %}
+
+  {%- if page.photos and page.photos > 0 %}
+  <section class="section">
+    <div class="wrap">
+      <p class="section-label">{% include t.html zh=site.data.i18n.photos_heading.zh en=site.data.i18n.photos_heading.en %}</p>
+      <div class="photos">
+        {%- for i in (1..page.photos) %}
+        {%- assign num = i | prepend: '0' | slice: -2, 2 -%}
+        {%- assign base = '/assets/img/events/' | append: page.slug | append: '/' | append: num -%}
+        <picture class="reveal">
+          <source srcset="{{ base | append: '.webp' | relative_url }}" type="image/webp">
+          <img src="{{ base | append: '.jpg' | relative_url }}"
+               alt="{{ page.title.zh }} 活動現場" loading="lazy" width="1600" height="900">
+        </picture>
+        {%- endfor %}
+      </div>
+    </div>
+  </section>
+  {%- endif %}
+
+  <nav class="event-nav">
+    <div class="wrap" style="display:flex; gap:20px; width:100%;">
+      {%- if prev_url %}
+      <a href="{{ prev_url | relative_url }}">← {% include t.html zh=site.data.i18n.prev_event.zh en=site.data.i18n.prev_event.en %}</a>
+      {%- endif %}
+      <span class="spacer"></span>
+      <a href="{{ '/#past' | relative_url }}">{% include t.html zh=site.data.i18n.back_home.zh en=site.data.i18n.back_home.en %}</a>
+      <span class="spacer"></span>
+      {%- if next_url %}
+      <a href="{{ next_url | relative_url }}">{% include t.html zh=site.data.i18n.next_event_nav.zh en=site.data.i18n.next_event_nav.en %} →</a>
+      {%- endif %}
+    </div>
+  </nav>
+</article>

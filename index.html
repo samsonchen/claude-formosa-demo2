@@ -1,0 +1,115 @@
+---
+layout: default
+hero: true
+---
+
+<section class="hero">
+  <video autoplay muted loop playsinline preload="metadata"
+         poster="{{ '/assets/img/hero-poster.jpg' | relative_url }}"
+         aria-hidden="true" tabindex="-1">
+    <source src="{{ '/assets/video/hero.mp4' | relative_url }}" type="video/mp4">
+  </video>
+  <div class="hero-content">
+    <h1>claude.formosa</h1>
+    <p class="lede">
+      <span class="l zh" lang="zh-Hant">每個月最後一個週五，在花蓮聊聊 AI 真正能做與不能做的事。</span>
+      <span class="l en" lang="en">On the last Friday of every month in Hualien, we talk about what AI can and cannot actually do.</span>
+    </p>
+    <a class="btn" href="{{ site.data.site.discord }}" rel="noopener">
+      {% include t.html zh=site.data.i18n.join_discord.zh en=site.data.i18n.join_discord.en %}
+    </a>
+  </div>
+</section>
+
+<section class="section" id="about">
+  <div class="wrap">
+    <p class="section-label">{% include t.html zh=site.data.i18n.mission_heading.zh en=site.data.i18n.mission_heading.en %}</p>
+    <div class="mission">
+      {%- for m in site.data.site.mission %}
+      <div class="reveal">
+        <div class="rule"></div>
+        <h3>{% include t.html zh=m.title.zh en=m.title.en %}</h3>
+        <p>{% include t.html zh=m.body.zh en=m.body.en %}</p>
+      </div>
+      {%- endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="section" id="past">
+  <div class="wrap">
+    <p class="section-label">{% include t.html zh=site.data.i18n.past_heading.zh en=site.data.i18n.past_heading.en %}</p>
+    <div class="eventlist">
+      {%- assign past = site.events | sort: 'date' | reverse -%}
+      {%- for e in past %}
+      {%- assign n = e.speakers | size -%}
+      <a href="{{ e.url | relative_url }}">
+        <span class="date">{{ e.date | date: "%Y.%m.%d" }}</span>
+        <span class="title">{% include t.html zh=e.title.zh en=e.title.en %}</span>
+        <span class="count">
+          <span class="l zh" lang="zh-Hant">{{ n }} 位分享者</span>
+          <span class="l en" lang="en">{{ n }} {% if n == 1 %}speaker{% else %}speakers{% endif %}</span>
+        </span>
+      </a>
+      {%- endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="section" id="next">
+  <div class="wrap">
+    <p class="section-label">{% include t.html zh=site.data.i18n.next_heading.zh en=site.data.i18n.next_heading.en %}</p>
+    {%- assign ne = site.data.site.next_event %}
+    <dl class="nextgrid">
+      <div>
+        <dt>{% include t.html zh=site.data.i18n.label_date.zh en=site.data.i18n.label_date.en %}</dt>
+        <dd>{{ ne.date | date: "%Y.%m.%d" }}
+          <span class="sub">{% include t.html zh=ne.weekday.zh en=ne.weekday.en %}</span></dd>
+      </div>
+      <div>
+        <dt>{% include t.html zh=site.data.i18n.label_time.zh en=site.data.i18n.label_time.en %}</dt>
+        <dd>{{ ne.time }}</dd>
+      </div>
+      <div>
+        <dt>{% include t.html zh=site.data.i18n.label_venue.zh en=site.data.i18n.label_venue.en %}</dt>
+        <dd>{% include t.html zh=site.data.site.venue.zh en=site.data.site.venue.en %}
+          <span class="sub">{% include t.html zh=site.data.site.address.zh en=site.data.site.address.en %}</span></dd>
+      </div>
+      <div>
+        <dt>{% include t.html zh=site.data.i18n.label_fee.zh en=site.data.i18n.label_fee.en %}</dt>
+        <dd>{% include t.html zh=ne.fee.zh en=ne.fee.en %}</dd>
+      </div>
+    </dl>
+    <p class="note">{% include t.html zh=site.data.i18n.registration_note.zh en=site.data.i18n.registration_note.en %}</p>
+  </div>
+</section>
+
+<section class="section" id="organizers">
+  <div class="wrap">
+    <p class="section-label">{% include t.html zh=site.data.i18n.organizers_heading.zh en=site.data.i18n.organizers_heading.en %}</p>
+    <div class="organizers">
+      {%- for o in site.data.site.organizers %}
+      <div class="organizer">
+        <span class="avatar" aria-hidden="true">{{ o.initials }}</span>
+        <span>
+          <span class="name">{{ o.name }}</span><br>
+          <span class="role">{% include t.html zh=o.role.zh en=o.role.en %}</span>
+        </span>
+      </div>
+      {%- endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="section" id="discord">
+  <div class="wrap discord">
+    <p class="section-label">{% include t.html zh=site.data.i18n.discord_heading.zh en=site.data.i18n.discord_heading.en %}</p>
+    <a class="btn btn-outline" href="{{ site.data.site.discord }}" rel="noopener">
+      {% include t.html zh=site.data.i18n.join_discord.zh en=site.data.i18n.join_discord.en %}
+    </a>
+    <figure class="qr">
+      <img src="{{ '/assets/img/qr/discord.svg' | relative_url }}" alt="Discord QR code" width="168" height="168">
+      <figcaption>{% include t.html zh=site.data.i18n.scan_to_join.zh en=site.data.i18n.scan_to_join.en %}</figcaption>
+    </figure>
+  </div>
+</section>

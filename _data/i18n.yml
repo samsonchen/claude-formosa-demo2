@@ -1,0 +1,72 @@
+skip_to_content:
+  zh: 跳到主要內容
+  en: Skip to content
+lang_switch_label:
+  zh: 語言
+  en: Language
+join_discord:
+  zh: 加入 Discord
+  en: Join our Discord
+scan_to_join:
+  zh: 用手機掃描加入
+  en: Scan to join
+mission_heading:
+  zh: 這是什麼
+  en: What this is
+past_heading:
+  zh: 過去的小聚
+  en: Past meetups
+next_heading:
+  zh: 下一場小聚
+  en: Next meetup
+organizers_heading:
+  zh: 召集人
+  en: Organizers
+discord_heading:
+  zh: 來 Discord 找我們
+  en: Find us on Discord
+label_date:
+  zh: 日期
+  en: Date
+label_time:
+  zh: 時間
+  en: Time
+label_venue:
+  zh: 地點
+  en: Venue
+label_fee:
+  zh: 費用
+  en: Cost
+registration_note:
+  zh: 報名將於活動前在 Discord 與 Threads 公告。
+  en: Registration opens shortly before each meetup, announced on Discord and Threads.
+speakers_count_one:
+  zh: 位分享者
+  en: speaker
+speakers_count_many:
+  zh: 位分享者
+  en: speakers
+speakers_heading:
+  zh: 當天的分享
+  en: What was shared
+photos_heading:
+  zh: 活動現場
+  en: From the room
+video_heading:
+  zh: 現場片段
+  en: From the floor
+back_home:
+  zh: 回到首頁
+  en: Back to home
+prev_event:
+  zh: 上一場
+  en: Previous
+next_event_nav:
+  zh: 下一場
+  en: Next
+venue_thanks:
+  zh: 感謝花蓮雲基地與花蓮縣政府提供場地。
+  en: With thanks to Hualien Cloud Base and the Hualien County Government for the venue.
+organized_by:
+  zh: 由 Samson Chen、Shinru Wang、Sophie Lin 共同召集。
+  en: Organized by Samson Chen, Shinru Wang and Sophie Lin.

@@ -1,0 +1,36 @@
+title: claude.formosa
+tagline_zh: 花蓮的 Claude 與 AI 愛好者小聚
+tagline_en: A Claude & AI meetup in Hualien, Taiwan
+description_zh: claude.formosa 是一個在花蓮定期舉行的 Claude 與 AI 愛好者小聚，每月最後一個週五在花蓮雲基地舉行，免費參加。
+description_en: claude.formosa is a community meetup for Claude and AI users in Hualien, Taiwan, held on the last Friday of each month at Hualien Cloud Base. Free to attend.
+
+url: "https://samsonchen.github.io"
+baseurl: "/claude-formosa-demo2"
+
+collections:
+  events:
+    output: true
+    permalink: /events/:name/
+
+defaults:
+  - scope:
+      path: ""
+      type: events
+    values:
+      layout: event
+
+sass:
+  style: compressed
+
+exclude:
+  - held_events
+  - videos
+  - scripts
+  - README.md
+  - CLAUDE.md
+  - claude.formosa-web.md
+  - claude.formosa-profile.md
+  - "claude.formosa.hualien v2.txt"
+  - vendor
+  - Gemfile
+  - Gemfile.lock

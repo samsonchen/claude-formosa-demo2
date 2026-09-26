@@ -1,0 +1,26 @@
+# 網站使用的素材清單。新增一場活動 = 在這裡加幾行，然後跑 scripts/build-assets.sh
+# kind	event	source（相對於 repo 根目錄）
+poster	2026-05-22	held_events/2026-05-22/海報/claude.formosa-poster v2.png
+photo	2026-05-22	held_events/2026-05-22/照片/2026-05-22 18.05.29 Large.jpeg
+photo	2026-05-22	held_events/2026-05-22/照片/2026-05-22 18.37.34 Large.jpeg
+photo	2026-05-22	held_events/2026-05-22/照片/2026-05-22 18.37.42 Large.jpeg
+poster	2026-06-26	held_events/2026-06-26/海報/claude ai meet 2026-06-26.jpeg
+photo	2026-06-26	held_events/2026-06-26/活動照片/2026-06-26 18.02.14 Large.jpeg
+photo	2026-06-26	held_events/2026-06-26/活動照片/2026-06-26 18.11.19 Large.jpeg
+photo	2026-06-26	held_events/2026-06-26/活動照片/2026-06-26 18.13.22 Large.jpeg
+photo	2026-06-26	held_events/2026-06-26/活動照片/2026-06-26 18.31.29 Large.jpeg
+photo	2026-06-26	held_events/2026-06-26/活動照片/2026-06-26 19.51.27 Large.jpeg
+photo	2026-06-26	held_events/2026-06-26/活動照片/S__9936936_0 Large.jpeg
+poster	2026-07-31	held_events/2026-07-31/海報/2026-07-31 花蓮場 海報.png
+photo	2026-07-31	held_events/2026-07-31/照片-節錄/2026-07-31 18.12.34 Large.jpeg
+photo	2026-07-31	held_events/2026-07-31/照片-節錄/2026-07-31 18.23.45 Large.jpeg
+photo	2026-07-31	held_events/2026-07-31/照片-節錄/2026-07-31 18.54.31 Large.jpeg
+photo	2026-07-31	held_events/2026-07-31/照片-節錄/2026-07-31 19.25.37 Large.jpeg
+photo	2026-07-31	held_events/2026-07-31/照片-節錄/2026-07-31 19.41.40 Large.jpeg
+poster	2026-08-28	held_events/2026-08-28/海報/2026-08-28海報.png
+photo	2026-08-28	held_events/2026-08-28/照片/2026-08-28 18.07.30 Large.jpeg
+photo	2026-08-28	held_events/2026-08-28/照片/2026-08-28 18.25.10 Large.jpeg
+photo	2026-08-28	held_events/2026-08-28/照片/2026-08-28 18.46.29 Large.jpeg
+photo	2026-08-28	held_events/2026-08-28/照片/2026-08-28 19.22.58 Large.jpeg
+photo	2026-08-28	held_events/2026-08-28/照片/2026-08-28 19.58.56 Large.jpeg
+photo	2026-08-28	held_events/2026-08-28/照片/2026-08-28 20.07.15 Large.jpeg
